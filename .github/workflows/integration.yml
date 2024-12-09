@@ -2,8 +2,11 @@ name: Data Integration Test
 
 #Trigger workflow on push to the main branch
 on:
-    push: 
-        branches:
+    push:
+      paths:
+        - "data-hub/**"
+    workflow_dispatch: 
+      branches:
           - main
 
 jobs:
@@ -16,3 +19,5 @@ jobs:
 
          - name: Run Data Integration Script 
            run: bash ./integration.sh
+
+          
